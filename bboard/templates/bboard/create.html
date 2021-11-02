@@ -1,0 +1,48 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}
+	{{current_rubric.name}}
+{% endblock %}
+
+{% block content %}
+	<h2>Добавление обьявления</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="Добавить">
+	</form>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Добавление обьявления :: Доска обьявлений</title>
+</head>
+<body>
+	<h1>Добавление обьявления</h1>
+	<div>
+		<a href="{% url 'index' %}">Главная</a>
+		{% for rubric in rubrics %}
+			<a href="{% url 'by_rubric' rubric.pk %}">
+				{{rubric.name}}
+			</a>
+		{% endfor %}
+	</div>
+	<form method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="Добавить">
+	</form>
+</body>
+</html>
+-->

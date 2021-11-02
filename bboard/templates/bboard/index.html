@@ -1,0 +1,40 @@
+{% extends "layout/basic.html" %}
+{% block content %}
+    {% for bb in bbs %}
+		<div>
+			<h2>{{bb.title}}</h2>
+			<p>{{bb.content}}</p>
+			<p><a href="{% url 'by_rubric' bb.rubric.pk %}">{{bb.rubric.name}}</a></p>
+			<p>{{bb.published|date:"d.m.Y H:i:s"}}</p>
+		</div>
+	{% endfor %}
+{% endblock content %}
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Главная :: Доска обьявлений</title>
+</head>
+<body>
+	<h1>Обьявления</h1>
+	<div>
+		<a href="{% url 'index' %}">Главная</a>
+		{% for rubric in rubrics %}
+			<a href="{% url 'by_rubric' rubric.pk %}">{{rubric.name}}</a>
+		{% endfor %}
+	</div>
+	<br><a href="{% url 'add' %}">Добавить</a>
+	{% for bb in bbs %}
+		<div>
+			<h2>{{bb.title}}</h2>
+			<p>{{bb.content}}</p>
+			<p><a href="{% url 'by_rubric' bb.rubric.pk %}">{{bb.rubric.name}}</a></p>
+			<p>{{bb.published|date:"d.m.Y H:i:s"}}</p>
+		</div>
+	{% endfor %}
+</body>
+</html>
+
+<a href="/bboard/{{rubric.pk}}">{{rubric.name}}</a> -->
